@@ -74,7 +74,7 @@ public class SingUpActivity extends AppCompatActivity {
 
         } else {
             if(editTextPassword.getText().toString().length()<6 || editTextPassword.getText().toString().length()>10){
-                errorTextView.setText("contrasena incorrecta");
+                errorTextView.setText("la contrasena debe tener mas de 6 caracteres y menos que 10");
             }else{
                 errorTextView.setText("");
                 SignUpTask signUpTask = new SignUpTask();
