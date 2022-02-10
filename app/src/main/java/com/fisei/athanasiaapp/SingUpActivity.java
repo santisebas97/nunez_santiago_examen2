@@ -71,10 +71,15 @@ public class SingUpActivity extends AppCompatActivity {
         if(editTextEmail.getText().toString().isEmpty() || editTextName.getText().toString().isEmpty() ||
                 editTextCedula.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty()){
             errorTextView.setText(R.string.fields_empty_error);
+
         } else {
-            errorTextView.setText("");
-            SignUpTask signUpTask = new SignUpTask();
-            signUpTask.execute();
+            if(editTextPassword.getText().toString().length()<6 || editTextPassword.getText().toString().length()>10){
+                errorTextView.setText("contrasena incorrecta");
+            }else{
+                errorTextView.setText("");
+                SignUpTask signUpTask = new SignUpTask();
+                signUpTask.execute();
+            }
         }
     }
     private void StartLoginActivity(){
