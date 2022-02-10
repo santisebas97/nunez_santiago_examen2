@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.net.URL;
 
-public class SingUpActivity extends AppCompatActivity {
+public class SingUpActivity_SSNT extends AppCompatActivity {
 
     private EditText editTextEmail;
     private EditText editTextName;
@@ -76,9 +76,15 @@ public class SingUpActivity extends AppCompatActivity {
             if(editTextPassword.getText().toString().length()<6 || editTextPassword.getText().toString().length()>10){
                 errorTextView.setText("la contrasena debe tener mas de 6 caracteres y menos que 10");
             }else{
-                errorTextView.setText("");
-                SignUpTask signUpTask = new SignUpTask();
-                signUpTask.execute();
+                //char[] contra = editTextPassword.getText().toString().toCharArray();
+
+                if(!editTextPassword.getText().toString().contains("[A-Z]")){
+                    errorTextView.setText("la contrasena debe tener un caracter especial y mayusculas");
+                }else{
+                    errorTextView.setText("");
+                    SignUpTask signUpTask = new SignUpTask();
+                    signUpTask.execute();
+                }
             }
         }
     }

@@ -17,7 +17,7 @@
             android:name=".OrderDetailsActivity_SSNT"
             android:exported="false" />
         <activity
-            android:name=".SingUpActivity"
+            android:name=".SingUpActivity_SSNT"
             android:exported="false" />
         <activity
             android:name=".AthanasiaActivity_SSNT"

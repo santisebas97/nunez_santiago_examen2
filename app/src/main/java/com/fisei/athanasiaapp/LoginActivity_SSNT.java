@@ -48,7 +48,7 @@ public class LoginActivity_SSNT extends AppCompatActivity {
         return true;
     }
     private void SignUp(){
-        Intent register = new Intent(this, SingUpActivity.class);
+        Intent register = new Intent(this, SingUpActivity_SSNT.class);
         startActivity(register);
     }
     private class LoginTask extends AsyncTask<URL, Void, JSONObject> {
