@@ -77,17 +77,21 @@ public class SingUpActivity_SSNT extends AppCompatActivity {
                 errorTextView.setText("la contrasena debe tener mas de 6 caracteres y menos que 10");
                 return;
             }
-            boolean m=editTextPassword.getText().toString().matches(".*[[:punct:]]");
+            boolean s=editTextPassword.getText().toString().matches(".*[[:punct:]]");
             if(!editTextPassword.getText().toString().matches(".*[[:punct:]]")){
                 errorTextView.setText("la contrasena debe tener un caracter especial");
                 return;
             }
-            //boolean ms=editTextPassword.getText().toString().matches(".*[0-9]");
-            if(!editTextPassword.getText().toString().matches(".*[0-9]")){
+
+            if(!editTextPassword.getText().toString().matches(".*\\d.x.*")){
                 errorTextView.setText("la contrasena debe tener numeros");
                 return;
             }
-            if(!editTextPassword.getText().toString().matches("(.*[A-Z])")){
+            if(!editTextPassword.getText().toString().matches(".*[a-z].*")){
+                errorTextView.setText("la contrasena debe tener minusculas");
+                return;
+            }
+            if(!editTextPassword.getText().toString().matches(".*[A-Z].*")){
                 errorTextView.setText("la contrasena debe tener mayusculas");
                 return;
             }
