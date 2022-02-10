@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity_SSNT extends AppCompatActivity {
 
     private EditText emailEditText;
     private EditText passwdEditText;
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void StartAthanasiaActivity(){
-        Intent loginSuccesful = new Intent(this, AthanasiaActivity.class);
+        Intent loginSuccesful = new Intent(this, AthanasiaActivity_SSNT.class);
         startActivity(loginSuccesful);
         finish();
     }
