@@ -44,6 +44,12 @@ public class SingUpActivity extends AppCompatActivity {
             UserClient newUser = new UserClient(0, editTextName.getText().toString(),
                     editTextEmail.getText().toString() + "@ath.com",
                     editTextCedula.getText().toString(), "");
+            /*
+            if(editTextPassword.getText().length()<6 || editTextPassword.length()>10){
+
+            }
+
+             */
             responseTask = UserClientService.SignUpNewUser(newUser, editTextPassword.getText().toString());
             return null;
         }
