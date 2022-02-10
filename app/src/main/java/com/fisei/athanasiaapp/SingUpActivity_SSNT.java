@@ -75,29 +75,29 @@ public class SingUpActivity_SSNT extends AppCompatActivity {
         } else {
             if(editTextPassword.getText().toString().length()<6 || editTextPassword.getText().toString().length()>10){
                 errorTextView.setText("la contrasena debe tener mas de 6 caracteres y menos que 10");
-                return;
-            }
-            boolean s=editTextPassword.getText().toString().matches(".*[[:punct:]]");
-            if(!editTextPassword.getText().toString().matches(".*[[:punct:]]")){
-                errorTextView.setText("la contrasena debe tener un caracter especial");
-                return;
+            }else{
+                boolean s=editTextPassword.getText().toString().matches(".*[!@#$%^&+=?-*].*");
+                if(!editTextPassword.getText().toString().matches(".*[!@#$%^&+=?-*].*")){
+                    errorTextView.setText("la contrasena debe tener un caracter especial");
+                }else{
+                    if(!editTextPassword.getText().toString().matches(".*\\d.*")){
+                        errorTextView.setText("la contrasena debe tener numeros");
+                    }else{
+                        if(!editTextPassword.getText().toString().matches(".*[a-z].*")){
+                            errorTextView.setText("la contrasena debe tener minusculas");
+                        }else{
+                            if(!editTextPassword.getText().toString().matches(".*[A-Z].*")){
+                                errorTextView.setText("la contrasena debe tener mayusculas");
+                            }else{
+                                errorTextView.setText("");
+                                SignUpTask signUpTask = new SignUpTask();
+                                signUpTask.execute();
+                            }
+                        }
+                    }
+                }
             }
 
-            if(!editTextPassword.getText().toString().matches(".*\\d.x.*")){
-                errorTextView.setText("la contrasena debe tener numeros");
-                return;
-            }
-            if(!editTextPassword.getText().toString().matches(".*[a-z].*")){
-                errorTextView.setText("la contrasena debe tener minusculas");
-                return;
-            }
-            if(!editTextPassword.getText().toString().matches(".*[A-Z].*")){
-                errorTextView.setText("la contrasena debe tener mayusculas");
-                return;
-            }
-            errorTextView.setText("");
-            SignUpTask signUpTask = new SignUpTask();
-            signUpTask.execute();
 
         }
     }
