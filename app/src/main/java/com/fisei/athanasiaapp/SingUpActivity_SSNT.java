@@ -75,24 +75,26 @@ public class SingUpActivity_SSNT extends AppCompatActivity {
         } else {
             if(editTextPassword.getText().toString().length()<6 || editTextPassword.getText().toString().length()>10){
                 errorTextView.setText("la contrasena debe tener mas de 6 caracteres y menos que 10");
-            }else{
-                if(!editTextPassword.getText().toString().matches("[[:punct:]]")){
-                    errorTextView.setText("la contrasena debe tener un caracter especial");
-                }else{
-                    boolean m=editTextPassword.getText().toString().matches("[[:punct:]]");
-                    if(!editTextPassword.getText().toString().matches("(.*[0-9])")){
-                        errorTextView.setText("la contrasena debe tener numeros");
-                    }else{
-                        if(!editTextPassword.getText().toString().matches("(.*[A-Z])")){
-                            errorTextView.setText("la contrasena debe tener mayusculas");
-                        }else{
-                            errorTextView.setText("");
-                            SignUpTask signUpTask = new SignUpTask();
-                            signUpTask.execute();
-                        }
-                    }
-                }
+                return;
             }
+            boolean m=editTextPassword.getText().toString().matches(".*[[:punct:]]");
+            if(!editTextPassword.getText().toString().matches(".*[[:punct:]]")){
+                errorTextView.setText("la contrasena debe tener un caracter especial");
+                return;
+            }
+            //boolean ms=editTextPassword.getText().toString().matches(".*[0-9]");
+            if(!editTextPassword.getText().toString().matches(".*[0-9]")){
+                errorTextView.setText("la contrasena debe tener numeros");
+                return;
+            }
+            if(!editTextPassword.getText().toString().matches("(.*[A-Z])")){
+                errorTextView.setText("la contrasena debe tener mayusculas");
+                return;
+            }
+            errorTextView.setText("");
+            SignUpTask signUpTask = new SignUpTask();
+            signUpTask.execute();
+
         }
     }
     private void StartLoginActivity(){
